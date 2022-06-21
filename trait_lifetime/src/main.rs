@@ -67,7 +67,7 @@ fn main() {
   
     }
     println!("\n");
-    println!("*********************Bai tap 1 cach 1*************************\n");
+    println!("*********************Bai tap 1 cach 2*************************\n");
     let b = find_fibonacci(13);
     println!("{:?}", b);
     println!("\n");
