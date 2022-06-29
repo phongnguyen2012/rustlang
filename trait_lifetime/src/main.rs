@@ -11,16 +11,16 @@ impl Iterator for Fibonacci {
     type Item = u32;
 
     fn next(&mut self) -> Option<u32> {
-        let mut a = self.a;
-        let mut b = self.b;
-        self.a = b;
-        self.b = a + b;
-        Some(a)
+        let x = self.a.checked_add(self.b)?;
+        self.a = self.b;
+        self.b = x;
+        
+        Some(x)
     }
 }
 
 fn fibonacci_numbers() -> impl Iterator<Item = u32> {
-    Fibonacci { a: 0, b: 1 }
+    Fibonacci { b: 0, a: 1 }
 }
 // tim day so fibonacci nho hon 400 cach 2
 fn find_fibonacci(x: u32) -> Vec<i32> {
@@ -57,14 +57,7 @@ fn main() {
     println!("*********************Bai tap 1 cach 1*************************\n");
      let mut x = 0;
     for number in fibonacci_numbers() {
-        x += 1;
-        if x> 2{
-            println!("{}", number);
-        }
-        if x ==  15{
-            break;
-        }
-  
+      println!("{}", number);
     }
     println!("\n");
     println!("*********************Bai tap 1 cach 2*************************\n");
